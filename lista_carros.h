@@ -71,3 +71,29 @@ inline void liberarLista(NoCarro*& inicio) {
         removido = nullptr;
     }
 }
+// Remove um veículo da lista utilizando seu código.
+inline void removerCarro(NoCarro*& inicio, int codigo) {
+    NoCarro* atual = inicio;
+    NoCarro* anterior = nullptr;
+
+    while (atual != nullptr && atual->carro.codigo != codigo) {
+        anterior = atual;
+        atual = atual->proximo;
+    }
+
+    if (atual == nullptr) {
+        cout << "\nCarro nao encontrado.\n";
+        return;
+    }
+
+    if (anterior == nullptr) {
+        inicio = atual->proximo;
+    } else {
+        anterior->proximo = atual->proximo;
+    }
+
+    delete atual;
+    atual = nullptr;
+
+    cout << "\nCarro removido com sucesso!\n";
+}
