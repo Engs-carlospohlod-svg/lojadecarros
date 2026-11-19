@@ -97,3 +97,65 @@ inline void removerCarro(NoCarro*& inicio, int codigo) {
 
     cout << "\nCarro removido com sucesso!\n";
 }
+// Altera os dados de um veículo localizado pelo código.
+inline void editarCarro(NoCarro* inicio, int codigo) {
+    NoCarro* atual = inicio;
+
+    while (atual != nullptr && atual->carro.codigo != codigo) {
+        atual = atual->proximo;
+    }
+
+    if (atual == nullptr) {
+        cout << "\nCarro nao encontrado.\n";
+        return;
+    }
+
+    int opcao;
+
+    cout << "\n1 - Alterar marca";
+    cout << "\n2 - Alterar modelo";
+    cout << "\n3 - Alterar ano";
+    cout << "\n4 - Alterar preco";
+    cout << "\n5 - Alterar quilometragem";
+    cout << "\n6 - Alterar placa";
+    cout << "\nEscolha o dado que deseja alterar: ";
+    cin >> opcao;
+
+    switch (opcao) {
+        case 1:
+            cout << "Nova marca: ";
+            cin >> atual->carro.marca;
+            break;
+
+        case 2:
+            cout << "Novo modelo: ";
+            cin >> atual->carro.modelo;
+            break;
+
+        case 3:
+            cout << "Novo ano: ";
+            cin >> atual->carro.ano;
+            break;
+
+        case 4:
+            cout << "Novo preco: ";
+            cin >> atual->carro.preco;
+            break;
+
+        case 5:
+            cout << "Nova quilometragem: ";
+            cin >> atual->carro.quilometragem;
+            break;
+
+        case 6:
+            cout << "Nova placa: ";
+            cin >> atual->carro.placa;
+            break;
+
+        default:
+            cout << "\nOpcao invalida!\n";
+            return;
+    }
+
+    cout << "\nVeiculo alterado com sucesso!\n";
+}
