@@ -15,7 +15,7 @@ int main() {
         cout << "\n==============================";
         cout << "\n1 - Cadastrar carro";
 cout << "\n2 - Listar carros";
-cout << "\n3 - Remover carro";
+cout << "\n3 - Remover carro"
 cout << "\n0 - Sair";
         cout << "\nEscolha: ";
         cin >> opcao;
