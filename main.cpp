@@ -15,6 +15,7 @@ int main() {
         cout << "\n1 - Cadastrar carro";
         cout << "\n2 - Listar carros";
         cout << "\n3 - Remover carro";
+        cout << "\n4 - editar carro";
         cout << "\n0 - Sair";
         cout << "\nEscolha: ";
         cin >> opcao;
@@ -31,6 +32,14 @@ int main() {
 
             case 3: {
                 int codigo;
+                
+                case 4: {
+                    int codigo;
+                    cout << "\nDigite o codigo do carro que deseja editar: ";
+                    cin >> codigo;
+                    editarCarro(lista, codigo);
+                    break;
+}
 
                 cout << "\nDigite o codigo do carro que deseja remover: ";
                 cin >> codigo;
