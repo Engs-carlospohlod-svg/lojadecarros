@@ -1,78 +1,19 @@
 #include <iostream>
-#include "lista_carros.h"
+#include "menu.h"
 
 using namespace std;
 
+// Ponto de entrada: repete o menu até o usuário escolher 0 e então libera a memória.
 int main() {
-    NoCarro* lista = nullptr;
+    Loja loja;
     int opcao;
-    int proximoCodigo = 1;
 
     do {
-        cout << "\n==============================";
-        cout << "\n     AUTOGESTAO - CARROS";
-        cout << "\n==============================";
-        cout << "\n1 - Cadastrar carro";
-        cout << "\n2 - Listar carros";
-        cout << "\n3 - Remover carro";
-        cout << "\n4 - editar carro";
-        cout << "\n5 - buscar carro";
-        cout << "\n6 - ordenar carros";
-        cout << "\n0 - Sair";
-        cout << "\nEscolha: ";
-        cin >> opcao;
-
-        switch (opcao) {
-            case 1:
-                cadastrarCarro(lista, proximoCodigo);
-                proximoCodigo++;
-                break;
-
-            case 2:
-                listarCarros(lista);
-                break;
-
-            case 3: {
-                int codigo;
-                
-                case 4: {
-                    int codigo;
-                    cout << "\nDigite o codigo do carro que deseja editar: ";
-                    cin >> codigo;
-                    editarCarro(lista, codigo);
-                    break;
-                   
-                    case 5: {
-                        int codigo;
-                        cout << "\nDigite o codigo do carro: ";
-                        cin >> codigo;
-                        buscarCarro(lista, codigo);
-                        break;
-}
-                    case 6:
-                        ordenarCarros(lista); 
-                        listarCarros(lista);
-                        break
-}
-
-                cout << "\nDigite o codigo do carro que deseja remover: ";
-                cin >> codigo;
-
-                removerCarro(lista, codigo);
-                break;
-            }
-
-            case 0:
-                cout << "\nEncerrando sistema...\n";
-                break;
-
-            default:
-                cout << "\nOpcao invalida!\n";
-        }
-
+        exibirMenu();
+        opcao = lerInteiro("Escolha: ", 0, 17);
+        executarOpcao(loja, opcao);
     } while (opcao != 0);
 
-    liberarLista(lista);
-
+    liberarLoja(loja);  // todo new tem seu delete
     return 0;
 }
