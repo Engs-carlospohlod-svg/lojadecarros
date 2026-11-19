@@ -3,7 +3,6 @@
 
 using namespace std;
 
-// Exibe o menu e controla as funcionalidades do sistema.
 int main() {
     NoCarro* lista = nullptr;
     int opcao;
@@ -14,9 +13,9 @@ int main() {
         cout << "\n     AUTOGESTAO - CARROS";
         cout << "\n==============================";
         cout << "\n1 - Cadastrar carro";
-cout << "\n2 - Listar carros";
-cout << "\n3 - Remover carro"
-cout << "\n0 - Sair";
+        cout << "\n2 - Listar carros";
+        cout << "\n3 - Remover carro";
+        cout << "\n0 - Sair";
         cout << "\nEscolha: ";
         cin >> opcao;
 
@@ -29,15 +28,17 @@ cout << "\n0 - Sair";
             case 2:
                 listarCarros(lista);
                 break;
-case 3: {
-    int codigo;
 
-    cout << "\nDigite o codigo do carro que deseja remover: ";
-    cin >> codigo;
+            case 3: {
+                int codigo;
 
-    removerCarro(lista, codigo);
-    break;
-}
+                cout << "\nDigite o codigo do carro que deseja remover: ";
+                cin >> codigo;
+
+                removerCarro(lista, codigo);
+                break;
+            }
+
             case 0:
                 cout << "\nEncerrando sistema...\n";
                 break;
