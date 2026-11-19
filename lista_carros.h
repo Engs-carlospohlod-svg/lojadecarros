@@ -182,3 +182,50 @@ inline void buscarCarro(NoCarro* inicio, int codigo) {
 
     cout << "\nCarro nao encontrado.\n";
 }
+inline void buscarCarro(NoCarro* inicio, int codigo) {
+    NoCarro* atual = inicio;
+
+    while (atual != nullptr) {
+        if (atual->carro.codigo == codigo) {
+            cout << "\nCarro encontrado!";
+            cout << "\nCodigo: " << atual->carro.codigo;
+            cout << "\nMarca: " << atual->carro.marca;
+            cout << "\nModelo: " << atual->carro.modelo;
+            cout << "\nAno: " << atual->carro.ano;
+            cout << "\nPreco: R$ " << atual->carro.preco;
+            cout << "\nQuilometragem: " << atual->carro.quilometragem;
+            cout << "\nPlaca: " << atual->carro.placa;
+            cout << "\nStatus: " << (atual->carro.vendido ? "Vendido" : "Disponivel");
+            return;
+        }
+
+        atual = atual->proximo;
+    }
+
+    cout << "\nCarro nao encontrado.\n";
+}
+
+inline void ordenarCarros(NoCarro* inicio) {
+    if (inicio == nullptr) {
+        cout << "\nLista vazia.\n";
+        return;
+    }
+
+    bool trocou;
+
+    do {
+        trocou = false;
+        NoCarro* atual = inicio;
+
+        while (atual->proximo != nullptr) {
+            if (atual->carro.codigo > atual->proximo->carro.codigo) {
+                swap(atual->carro, atual->proximo->carro);
+                trocou = true;
+            }
+
+            atual = atual->proximo;
+        }
+    } while (trocou);
+
+    cout << "\nCarros ordenados pelo codigo!\n";
+}
